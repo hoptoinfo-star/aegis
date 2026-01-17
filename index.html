@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Team | Fejlesztői Csoport</title>
+    <style>
+        /* Modern Sötét Téma és Design */
+        :root {
+            --bg-color: #0a0b10;
+            --accent-color: #00d4ff;
+            --text-color: #e0e0e0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Navigáció */
+        header {
+            background: rgba(10, 11, 16, 0.8);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 0;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+
+        /* Hero rész */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #161b33 0%, #0a0b10 100%);
+        }
+
+        .hero h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #888;
+        }
+
+        /* Projektek szekció */
+        .projects {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .status-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border: 1px solid var(--accent-color);
+        }
+
+        .project-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-stack span {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #ff5555;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 85, 85, 0.3);
+        }
+
+        /* Jogi rész */
+        .legal-simple {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <h1 class="logo">AEGIS <span>TEAM</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#projektek">Projektek</a></li>
+                    <li><a href="#nyilatkozat">Infó</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>A jövő interfésze a mában.</h2>
+            <p>Fiatal fejlesztők nonprofit hobbyprojektje.</p>
+        </div>
+    </section>
+
+    <section id="projektek" class="projects">
+        <div class="container">
+            <h3 class="section-title">Jelenlegi munkáink</h3>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <span class="status-tag">FEJLESZTÉS ALATT</span>
+                    <h4>Aegis ŰrállomásPanel</h4>
+                    <p>Valós idejű ISS telemetria követő Python rendszer. Adatvizualizáció és űrkutatási adatok egy helyen, tanulási céllal készítve.</p>
+                    
+                    <div class="tech-stack">
+                        <span>Python 3.x</span>
+                        <span>OpenSource API</span>
+                        <span>Custom UI</span>
+                    </div>
+
+                    <p class="disclaimer">
+                        <strong>Figyelem:</strong> A letöltés és használat saját felelősségre történik!
+                    </p>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section id="nyilatkozat" class="container">
+        <div class="legal-simple">
+            <div class="container">
+                <h3>Jogi nyilatkozat (Egyszerűen)</h3>
+                <p>Ez egy <strong>nonprofit diákprojekt</strong>. Nem vagyunk bejegyzett cég, és nem végzünk semmilyen kereskedelmi vagy profitorientált tevékenységet. A weboldalon található minden tartalom és kód "úgy, ahogy van" alapon érhető el. Semmilyen felelősséget nem vállalunk a szoftverek használatából eredő esetleges hibákért vagy károkért.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Kapcsolat: dewybusiness609@gmail.com</p>
+            <p>Domain: Rackhost Zrt. | Tárhely: GitHub Pages</p>
+            <p>&copy; 2026 Aegis Team. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
